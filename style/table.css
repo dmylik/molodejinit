@@ -1,0 +1,50 @@
+/*table{*/
+/*    margin: 16px;*/
+/*    width: 100%;*/
+/*    border-collapse:collapse;*/
+/*    border-spacing:0*/
+/*}*/
+/*table, td, th{*/
+/*    border: 1px solid #595959;*/
+/*}*/
+/*td, th{*/
+/*    padding: 3px;*/
+/*    width: 30px;*/
+/*    height: 25px;*/
+/*}*/
+/*th{*/
+/*    !*background-color: #7accee!important;*!*/
+/*    background: linear-gradient(to top, rgb(1,127,189), rgb(1,147,199));*/
+/*    color: azure;*/
+/*    text-align: center;*/
+/*    font-size: 14pt;*/
+/*}*/
+
+/*tr:hover {*/
+/*    background: #d5e6a2; !* Цвет фона *!*/
+/*}*/
+
+/*.oll_table{*/
+
+/*    width: 80%;*/
+/*    margin: 2em;*/
+/*    display:inline-block;*/
+/*}*/
+
+.main {
+    display:inline-block;
+}
+
+.color_tr_hover:hover{
+    background-color: rgb(74, 154, 255);
+    cursor: pointer;
+}
+
+.head_table  {
+    background: rgb(94, 104, 255);
+    color: azure;
+    text-align: center;
+    font-size: 14pt;
+    padding: 0.5em;
+}
+

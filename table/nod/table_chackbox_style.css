@@ -1,0 +1,65 @@
+.lb1 {
+    margin: 0.3em;
+}
+#checkbox_for_vibor_nod {
+    display: none;
+}
+#checkbox_for_vibor_nod+.lb1, #checkbox_for_vibor_nod+.lb1::before, #checkbox_for_vibor_nod+.lb1::after {
+    transition: all .3s;
+}
+#checkbox_for_vibor_nod+.lb1 {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+#checkbox_for_vibor_nod+.lb1::before {
+    display: block;
+    content: attr(data-offlabel);
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 19px;
+}
+#checkbox_for_vibor_nod+.lb1::after {
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+}
+#checkbox_for_vibor_nod:checked+.lb1::before {
+    content: attr(data-onlabel);
+    left: 16px;
+    right: auto;
+    color: #fff;
+}
+#checkbox_for_vibor_nod:checked+.lb1::after {
+    left: 62px;
+    background-color: #f7f7f7;
+}
+
+#checkbox_for_vibor_nod+.lb1 {
+    background-color: #ccc;
+    margin-left: 2em;
+}
+#checkbox_for_vibor_nod:checked+.lb1 {
+    margin-left: 2em;
+    background-color: rgba(0, 128, 0, 0.64);
+}
+#checkbox_for_vibor_nod:checked+.lb1::before {
+    color: #fff;
+}
+
+.element_insert_form_1{
+    height: 40px;
+    padding: 0.4em;
+    border-radius: 0.3em;
+}

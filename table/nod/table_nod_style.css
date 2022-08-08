@@ -1,0 +1,84 @@
+#head_table_nod1,
+#head_table_nod2 {
+    background: rgb(94, 104, 255);
+    color: azure;
+    text-align: center;
+    font-size: 14pt;
+    padding: 0.5em;
+}
+
+#modal_window_nod{
+    width: 100%;
+    /*height: 100%;*/
+
+    position: absolute;
+    display: flex;
+}
+
+.take_data_vnedr_nod_MI{
+    /*border: #ff2f34 1px solid;*/
+    margin-top: 2em;
+    padding: 0.5em 0 0.5em 2em;
+    display: flex;
+}
+
+#data_vnedr_nod_MI {
+    height: 2em;
+}
+
+.modal_window_nod h1, h2, h3{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+#table_nod_nomination_tr:hover,
+#table_nod_id_tr:hover,
+#table_nod_author_tr:hover,
+#table_nod_znach_tehnik_tr:hover,
+#table_nod_vibor_nod_tr:hover,
+#table_nod_date_vnedr_tr:hover,
+#table_nod_name_tr:hover,
+#table_nod_name_sluzh_tr:hover,
+#table_nod_name_org_tr:hover {
+    background-color: rgb(74, 154, 255);
+    cursor: pointer;
+}
+
+.style_input_RP{
+    width: 90%;
+    height: 23px;
+    border-bottom: 2px solid #8fc1f5;
+    border-top: 0.5px solid #dad5d5;
+    border-left: 0.5px solid #dad5d5;
+    border-right: 0.5px solid #dad5d5;
+	
+}
+.otdel_input{
+    border-top: 0.5px solid #dad5d5;
+    border-left: 0.5px solid #dad5d5;
+    border-right: 0.5px solid #dad5d5;
+    width: 89%;
+    height: 25px;
+}
+
+.stroka_info_insert {
+    padding: 0.5em 0 0.5em 2em;
+}
+
+#data_vnedr_nod_MI{
+    width: 10em;
+    margin-left: 1em;
+}
+
+#add_text_for_this_place_nod {
+    height: 100px;
+}
+
+#vibor_nod_send{
+    margin-left: 35%;
+    padding: 8px 32px;
+}
+
+.table_level_NOD {
+    overflow-x: hidden;
+}

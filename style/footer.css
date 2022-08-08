@@ -1,0 +1,67 @@
+footer {
+    /*grid-area: f;*/
+    background-color: #7accee;
+    width: 100%;
+    min-height: 10vh;
+
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+}
+
+.contayner_control_button {
+    background-color: rgba(223, 223, 223, 0);
+}
+
+.cont_button_control {
+    display: inline-block;
+}
+
+.button_add_newMI
+{
+    outline: none;
+    margin-left: 10px;
+    height: 70px;
+    color: rgb(1,127,189);
+    width: 70px;
+    border: 1px solid rgb(1,127,189);
+    font-size: 9pt;
+    background-color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px black;
+    border-radius: 50%;
+}
+
+
+.doc_file_main_polz {
+    margin-top: 10px;
+    display: inline-block;
+    color: black;
+}
+
+.doc_file_main_polz:hover {
+    color: rgb(133, 177, 190);
+}
+
+.text_header1 {
+    margin-left: 1em;
+    /*float: right;*/
+    /*width: 300px;*/
+    /*height: 40px;*/
+    margin-top: 10px;
+    color: #000000;
+    font-size: 30pt;
+    letter-spacing: 2px;
+    margin-right: 30px;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
+
+}
+
+.contayner_control_button ul{
+    margin: 0.5em;
+}
+
+.contayner_control_button li{
+    list-style-type: square; /* Квадратный маркер у списка */
+}

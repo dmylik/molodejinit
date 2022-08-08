@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title> AC MI</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css?ver=1.0.6"/>
+    <link rel="stylesheet" type="text/css" href="style/header.css?ver=1.0.6"/>
+    <link rel="stylesheet" type="text/css" href="style/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="style/table.css"/>
+    <link rel="stylesheet" type="text/css" href="table/predpriatie/predpriatie.css"/>
+    <link rel="stylesheet" type="text/css" href="table/nod/table_nod_style.css"/>
+    <link rel="stylesheet" type="text/css" href="table/nod/table_chackbox_style.css"/>
+    <link rel="stylesheet" type="text/css" href="table/slugba/table_slugba_style.css"/>
+    <link rel="stylesheet" type="text/css" href="table/bgd/table_bgd_style.css"/>
+    <link rel="stylesheet" type="text/css" href="table/commission/table_cmmission_style.css"/>
+
+    <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="calendar/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="calendar/js/jquery-ui.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!--Модальное окно ввода данных уровня NOD-->
+<div id="modal_window_nod">
+    <div class="nothing_in_this"></div>
+    <div class="place_for_modal">
+        <div class="header_modal_add">
+            <button class="button_close_init" onclick="CloseModalNOD()">Закрыть</button>
+        </div>
+<!--        <h1>Редактирование <br> молодёжной инициативы </h1>-->
+
+        <div id="vibor_nod_send">
+            <h2>Выбор на конкурс</h2>
+            <input type="checkbox" id="checkbox_for_vibor_nod" name="checkbox_for_vibor_nod" onchange="updateVybor()">
+            <label for="checkbox_for_vibor_nod" data-onlabel="Да" data-offlabel="Нет" class="lb1"></label>
+        </div>
+
+            <div class="take_data_vnedr_nod_MI">
+            <h3>Дата внедрения </h3>
+            <input type="date"
+                   id="data_vnedr_nod_MI"
+                   name="trip-start"
+                   min="2018-01-01"
+                   required
+                   readonly
+                   max="2025-12-31">
+        </div>
+        <div class="stroka_info_insert">
+            <lable class="text_podpis">
+                <h3>Место внедрения</h3>
+                <ul class="contayner_RP_3_elements">
+                    <li class="contayner_RP_4_element_1">
+                        <lable class="name_elements">Структурные подразделения Белорусской железной дороги <br>
+                            <select id="struct_podr_bgd_nod" class="RP_4_element_1 style_input_RP element15 value element_insert_form_1" type="text">
+                                <option selected=""></option>
+                                <option value="2">Службы управления дороги</option>
+                                <option value="3">Организации Белорусской железной дороги</option>
+                                <option value="4">Обособленные структурные подразделения</option>
+                            </select>
+                        </lable>
+                    </li>
+
+                    <li class="contayner_RP_4_element_2">
+                        <lable class="name_elements">Уровень отделения Белорусской железной дороги <br>
+                            <select id="level_otdel_bgd_nod" class="RP_4_element_2 style_input_RP element16 value element_insert_form_1"
+                                    type="text">
+                            </select>
+                        </lable>
+                    </li>
+
+                    <li class="contayner_RP_3_element_1">
+                        <lable class="name_elements">Организация Белорусской железной дороги <br>
+                            <select id="organiz_bgd_nod" class="RP_3_element_1 style_input_RP element17 value element_insert_form_1"
+                                    type="text">
+                            </select>
+                        </lable>
+                    </li>
+                    <li class="contayner_RP_3_element_1">
+                        <lable class="name_elements">Отдел, участок, цеx <br>
+                            <input id="add_text_for_this_place_nod" class="otdel_input element_insert_form_1"/>
+                        </lable>
+                    </li>
+                </ul>
+            </lable>
+
+            <div class="div_button_add_new_MI">
+                <button id="remove_this_MI_nod" class="button_add_new_MI" onclick="saveThisMINOD()">Сохранить</button>
+                <button id="open_remove_function" class="button_add_new_MI" onclick="editThisMINOD()">Редактировать</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- модальное окно ввода данных "Предприятие"-->
+<div class="add_new_place">
+    <div id="nothing_in_this_pred" class="nothing_in_this">
+        <div id="add_new_author" class="panel2">
+<!--            <div class="panel2">-->
+                <div>
+                    <button id="closeWindowFindAuthor" onclick="closeWindowFindAuthor()">Закрыть</button>
+                </div>
+                <div class = "contayner_rez_poisk">
+                    <span class = "rez_poisk" ><h3>Введите ФИО автора: </h3></span>
+                    <input class="vvod_text_info1_insert" type="text" placeholder="Фамилия Имя Отчество">
+                </div>
+
+                <div class = "contayner_panel2">
+                    <table class="table_rez_poisk_first" >
+                        <tr class="stroka_table_poisk" >
+                            <td class="pf" > ФИО </td>
+                            <td class="df" > Организация </td >
+                        </tr>
+                    </table>
+                </div>
+<!--            </div>-->
+        </div>
+    </div>
+    <div class="place_for_modal">
+        <div class="header_modal_add">
+            <button class="button_close_init" onclick="Close()">Закрыть</button>
+        </div>
+        <h1 id="regH1MI">Регистрация <br> молодёжной инициативы</h1>
+
+        <div class="take_data_new_MI">
+            <h3>Дата</h3>
+            <input type="date"
+                   id="data_new_MI"
+                   name="trip-start"
+                   min="2018-01-01"
+                   required
+                   readonly
+                   max="2025-12-31">
+        </div>
+        <div class="write_name_new_MI">
+            <h3>Наименование</h3>
+            <textarea id="name_new_novshestva_modal" class="name_new_novshestva_modal" required maxlength="1000"
+                      readonly></textarea>
+        </div>
+        <div class="write_author_new_MI">
+            <h3>Авторы</h3>
+            <textarea id="write_author_novshestva_modal" class="name_new_novshestva_modal" required maxlength="500"
+                      readonly></textarea>
+            <button id="add_author_pred" class="add_autor" onclick="autorAdd()">Добавить автора</button>
+        </div>
+        <div class="take_nomination_new_MI">
+            <h3>Номинация</h3>
+            <select id="list_top_nomination_new_MI" required class="nomination_select" disabled>
+                <option value="1">Лучшая МИ, направленная на повышение безопасности движения поездов</option>
+                <option value="2">Лучшая МИ, направленная на улучшение условий перевозки грузов и пассажиров
+                </option>
+                <option value="3">Лучшая МИ, направленная на повышение производительности труда и рациональное
+                    использование трудовых ресурсов
+                </option>
+                <option value="4">Лучшая МИ, направленная на экономию топливно-энергетических и материальных
+                    ресурсов
+                </option>
+                <option value="5">Лучшая МИ, направленная на обеспечение охраны окружающей среды</option>
+                <option value="6">Лучшая МИ, направленная на улучшение условий и охраны труда на производстве
+                </option>
+                <option value="7">Лучшая МИ, направленная на автоматизацию и механизацию производственных
+                    процессов
+                </option>
+                <option value="8">Лучшая МИ, направленная на цифровую трансформацию производственных процессов
+                </option>
+            </select>
+        </div>
+        <div class="zna4_tehnik_rehenia_new_MI">
+            <h3>Значимость технического решения</h3>
+            <textarea id="znach_tehnik_new_MI" class="znach_tehnik_new_MI" maxlength="4000" readonly></textarea>
+        </div>
+        <div class="take_file_new_MI">
+            <h3>Файлы:</h3>
+            <input id="add_files_predpriatie_MI" type="file" disabled>
+        </div>
+        <div class="div_button_add_new_MI">
+            <button id="add_new_MI" class="button_add_new_MI" onclick="AddNewMI()">Добавить</button>
+            <button id="delete_new_MI" class="button_add_new_MI" onclick="openWindowForDelete(true)">Удалить</button>
+            <button id="remove_open_new_MI" class="button_add_new_MI"
+                    onclick="open_edit_window([`none`, `block`, `block`, `none`])">Редактировать
+            </button>
+            <button id="remove_new_MI" class="button_add_new_MI" onclick="editThisMI()">Сохранить</button>
+        </div>
+    </div>
+</div>
+
+<header>
+    <div class="name_header">
+        <span class="text_header1"> AC Рационализатор</span>
+    </div>
+
+    <div class="text_header">
+        <div id="txt_name_fio">
+            <div>
+                <p id="name_header_text" class="name_header_text"></p>
+            </div>
+            <div>
+                <p id="name_fio" class="name_fio"></p>
+            </div>
+        </div>
+        <!--        <span id="organization" class="organization"></span>-->
+        <div id="place_btn_exit">
+            <button class="exit_program">Выход</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div id="year_and_find">
+        <div id="year_selected">
+            <select id="list_year_for" onchange="restart_table(this.value)"></select>
+        </div>
+        <div id="div_find">
+            <div>
+                <input type="text" id="text_for_find"/>
+                <button id="button_findAll" onclick="findFunctionButton(tableSee)">Поиск</button>
+<!--                <button id="button_find" onclick="find_pred_txt()">Найти</button>-->
+<!--                <button id="button_find_nod" onclick="find_nod_txt()">Найти</button>-->
+<!--                <button id="button_find_slugba" onclick="find_slugba_txt()">Найти</button>-->
+<!--                <button id="button_find_bgd" onclick="find_bgd_txt()">Найти</button>-->
+<!--                <button id="button_find_comm" onclick="find_com_txt()">Найти</button>-->
+                <button id="button_reset_find" onclick="reset_find()">X</button>
+            </div>
+            <div id="div_for_button_add">
+                <button id="button_transition_comm" onclick="transition_table_comm()">Комиссия</button>
+                <button id="button_transition_bgd" onclick="transition_table_bgd()">БЖД</button>
+                <button id="button_add_new_mi" onclick="Insert()">Добавить</button>
+<!--                <button id="button_choose_rating" onclick="choose_rating1()">Голосовать</button>-->
+            </div>
+        </div>
+    </div>
+
+    <!--    таблицы информации для разных пользователей-->
+    <div class="oll_table">
+        <div id="table_level_predpriatie">
+            <table class="table_level_predpriatie">
+                <tr id="head_table_predpriatie1">
+                    <td class="color_tr_hover" onclick="number_sort_data('num')">№ п/п</td>
+                    <td class="color_tr_hover" onclick="date_sort_predpriatie()">Дата регистрации</td>
+                    <td class="color_tr_hover" onclick="name_sort_pred('name')">Наименование молодежной инициативы</td>
+                    <td class="color_tr_hover" onclick="name_sort_pred('author')">Авторы</td>
+                    <td class="color_tr_hover" onclick="number_sort_data('nomination')">Номинация</td>
+                    <td class="color_tr_hover" onclick="name_sort_pred('znach_tehnik')">Значимость технического решения</td>
+                    <td>Файлы</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="table_level_NOD">
+            <table class="table_level_NOD">
+                <tr id="head_table_nod1">
+                    <td rowspan="2" class="color_tr_hover" onclick="number_sort_nod('num')">№ п/п</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_nod(`name_org`)">Структурное подразделение</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_nod(`name_sluzh`)">Хозяйство (служба)</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_nod(`name`)">Наименование молодёжной инициативы</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_nod(`author`)">Авторы</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="number_sort_nod('nomination')">Номинация</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_nod(`znach_tehnik`)">Значимость технического решения</td>
+                    <td colspan="2">Внедрено</td>
+                    <td rowspan="2">Файлы</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="number_sort_nod('vybor_nod')">Выбор</td>
+                </tr>
+                <tr id="head_table_nod2">
+                    <td class="color_tr_hover" onclick="date_sort_nod_mi()">Дата</td>
+                    <td class="color_tr_hover" onclick="name_sort_table_nod(`vnedr_place`)">Место</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="table_level_slugba">
+            <table class="table_level_slugba">
+                <tr id="head_table_slugba1">
+                    <td rowspan="2" class="color_tr_hover" onclick="number_sort_Slugba('num')">№ п/п</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table('Slugba','name_org')">Структурное подразделение</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table('Slugba','name_sluzh')">Хозяйство (служба)</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table('Slugba','name')">Наименование молодёжной инициативы</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table('Slugba','author')">Авторы</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="number_sort_Slugba('nomination')">Номинация</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table('Slugba','znach_tehnik')">Значимость технического решения</td>
+                    <td colspan="2">Внедрено</td>
+                    <td rowspan="2" >Файлы</td>
+                </tr>
+                <tr id="head_table_slugba2">
+                    <td class="color_tr_hover" onclick="date_sort_Slugba_mi()">Дата</td>
+                    <td class="color_tr_hover" onclick="name_sort_table('Slugba','vnedr_place')">Место</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="table_level_bgd">
+            <table class="table_level_bgd">
+                <tr id="head_table_bgd1">
+                    <td rowspan="2" class="color_tr_hover" onclick="number_sort_BGD('num')">№ п/п</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_BGD('name_org')">Структурное подразделение</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_BGD('name_sluzh')">Хозяйство (служба)</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_BGD('name')">Наименование молодёжной инициативы</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_BGD('author')">Авторы</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="number_sort_BGD('nomination')">Номинация</td>
+                    <td rowspan="2" class="color_tr_hover" onclick="name_sort_table_BGD('znach_tehnik')">Значимость технического решения</td>
+                    <td colspan="2" class="color_tr_hover">Внедрено</td>
+                    <td rowspan="2">Файлы</td>
+                    <td rowspan="2">Средняя оценка</td>
+                    <td rowspan="2">Призовое место</td>
+                </tr>
+                <tr id="head_table_bgd2">
+                    <td class="color_tr_hover" onclick="date_sort_BGD()">Дата</td>
+                    <td class="color_tr_hover" onclick="name_sort_table_BGD('vnedr_place')">Место</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="table_level_commission_and_bgd">
+            <table id="commission" class="commission_and_bgd">
+                <tr id="head_table_comm">
+                    <td>№ п/п</td>
+                    <td>Структурное подразделение</td>
+                    <td>Хозяйство (служба)</td>
+                    <td>Наименование молодёжной инициативы</td>
+                    <td>Авторы</td> 
+                    <td>Файлы</td>
+                    <td>Оценка</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+
+
+<!--<footer class="footer">-->
+<!--    <div class="contayner_control_button">-->
+<!--        <ul class="cont_button_control">-->
+<!--            <li class="spis_button_control">-->
+<!--                <button class="button_add_newMI" onclick="Insert()">Добавить</button>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--        <span class="text_header1"> AC Рационализатор</span>-->
+<!--        <a class="doc_file_main_polz" href="Rukovodstvo.doc"> Руководство пользователя</a>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<script type="text/javascript" src="js/table.js"></script>
+<script type="text/javascript" src="js/sort_table.js"></script>
+
+<script type="text/javascript" src="table/predpriatie/table_level_predpriatie.js"></script>
+<script type="text/javascript" src="table/predpriatie/predpriatie_POST.js"></script>
+<script type="text/javascript" src="table/predpriatie/sort_table_predpriatie.js"></script>
+<script type="text/javascript" src="table/predpriatie/find_author.js"></script>
+
+<script type="text/javascript" src="table/nod/table_level_nod.js"></script>
+<script type="text/javascript" src="table/nod/sort_table_nod.js"></script>
+<script type="text/javascript" src="table/nod/table_nod_post.js"></script>
+
+<script type="text/javascript" src="table/bgd/table_level_bgd.js"></script>
+<script type="text/javascript" src="table/bgd/table_level_bgd_sort.js"></script>
+
+<script type="text/javascript" src="table/slugba/table_level_slugba.js"></script>
+<script type="text/javascript" src="table/slugba/table_level_slugba_sort.js"></script>
+
+<script type="text/javascript" src="table/commission/table_level_commission.js"></script>
+<script type="text/javascript" src="table/commission/sort_commission.js"></script>
+
+
+<script type="text/javascript" src="js/cookie.js"></script>
+<script type="text/javascript" src="js/data_form.js"></script>
+<script type="text/javascript" src="js/general_functions.js"></script>
+
+
+<script src="calendar/js/calendar.js" type="text/javascript"></script>
+
+<!--<?php include('html/scripts.html');?>-->
+
+<!--#include virtual="/html/scripts.html"-->
+
+</body>
+</html>

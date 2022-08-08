@@ -1,0 +1,45 @@
+#head_table_comm{
+    background: rgb(94, 104, 255);
+    color: azure;
+    height: 3em;
+    text-align: center;
+    font-size: 14pt;
+    padding: 0.5em;
+}
+
+.mi_commission_oll:hover {
+    background-color: #ffffff;
+}
+
+.select_comm{
+    width: 100%;
+    /*height:100%;*/
+    height: auto;
+    min-height: 100%;
+    font-size: 13pt;
+    padding: 2px;
+    text-align: center;
+}
+
+.tr_rating{
+    padding: 0;
+    height:100%;
+}
+
+.tr_rating select {
+    /*opacity: 0.3;*/
+
+    background-color: rgba(255,255,255,0.1);
+    border: none;
+}
+
+.tr_rating p{
+    text-align: center;
+    font-size: 15pt;
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
+.mi_commission_oll{
+    font-size: 18pt;
+}
